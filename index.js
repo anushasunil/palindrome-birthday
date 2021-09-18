@@ -2,6 +2,7 @@ var dateInputRef = document.querySelector("#bday-input");
 var checkButton = document.querySelector(".btn-check");
 var outputMessage = document.querySelector(".output-message");
 var count = 0;
+var pcount = 0;
 
 function reverseString(str)
 {
@@ -87,7 +88,7 @@ function getNextDate(date)
 
     if(month == 2)
     {
-        if(isLeapYear[year])
+        if(isLeapYear(year))
         {
             if(day > 29)
             {
@@ -187,12 +188,84 @@ function clickHandler()
       }
       else
       {
-        let nextDate = getNextPalindromeDate(date)
-        outputMessage.innerText = "The next palidrome date is  " + String(nextDate.day) + "/ " + String(nextDate.month) + "/ " + String(nextDate.year) + "  you missed it by " + String(count) + " days!";
+        let nextDate = getNextPalindromeDate(date);
+        let previousDate = getPreviousPalindromeDate(date);
+        outputMessage.innerText = "The previous palindrome date was on " + String(previousDate.month) + "/" + String(previousDate.day) + "/" + String(previousDate.year) + " missed it by "+ String(pcount) + " days and the next palidrome date is  " + String(nextDate.month) + "/ " + String(nextDate.day) + "/ " + String(nextDate.year) + "  you missed it by " + String(count) + " days!";
       }
       count = 0;
+      pcount = 0;
       console.log(date)
   }
 }
+
+
+function getPreviousDate(date)
+{
+    var day = date.day - 1;
+    var month = date.month;
+    var year = date.year;
+
+    var daysInAMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+    if( day == 0)
+    {
+        if( month - 1 == 2)
+        {
+            month = month - 1;
+            if(isLeapYear(year))
+            {
+                day = 29;
+            }
+            else
+            {
+                day = 28;
+            }
+        }
+        else
+        {
+            if(daysInAMonth[month - 2] == 31)
+            {
+                day = 31;
+                month = month - 1;
+            }
+            else
+            {
+                day = 30;
+                month = month - 1;
+            }
+        }
+        if( month == 0)
+        {
+            month = 12;
+            year = year - 1;
+        }
+    }
+    return {
+        day: day,
+        month: month,
+        year: year
+    }
+
+}
+
+function getPreviousPalindromeDate(date)
+{
+    var previousDate = getPreviousDate(date)
+
+    while(1)
+    {
+        pcount = pcount + 1;
+        var isItAPalindrome = checkPalindromeForAllDateFormats(previousDate);
+        if(isItAPalindrome)
+        {
+            break;
+        }
+        previousDate = getPreviousDate(previousDate);
+    }
+
+    return convertDateToString(previousDate);
+}
+
+
 
 checkButton.addEventListener("click", clickHandler);
