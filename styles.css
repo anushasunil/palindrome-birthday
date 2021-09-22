@@ -1,19 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
 
 :root {
-    --primary-blue: rgba(31,41,55);
+    --primary-blue: rgba(31, 41, 55);
 }
 
 body {
     text-align: center;
     color: white;
-    border: 0.2rem solid;
+
     width: 45%;
-    
-   margin-top: 10%;
-   margin-left: 30%;
-   font-family: 'Paytone One', sans-serif;
-   background-color: var(--primary-blue);
+
+    margin-top: 10%;
+    margin-left: 25%;
+    font-family: 'Paytone One', sans-serif;
+    background-color: var(--primary-blue);
+}
+
+.container {
+    border: 0.2rem solid;
+
 }
 
 h1 {
@@ -25,11 +30,12 @@ input {
     width: 35%;
     padding: 0.3rem;
     font-size: 1.3rem;
-    display:block;
+    display: block;
     margin: auto;
     border-radius: 0.2rem;
     font-family: 'Paytone One', sans-serif;
     text-align: center;
+    cursor: pointer;
 
 }
 
@@ -40,10 +46,56 @@ button {
     border-radius: 0.2rem;
     padding: 0.5rem 1.7rem;
     font-size: 1.3rem;
+    cursor: pointer;
 }
 
-div {
+.output-message {
     margin-bottom: 1rem;
-    font-size: 1.5rem; 
+    font-size: 1.5rem;
     padding: 1rem;
+}
+
+
+footer {
+
+    position: fixed;
+    margin-left: 13%;
+    /* margin-right: 25% ; */
+    font-size: 1.5rem;
+    background-color: var(--primary-color);
+    /* padding: 2rem 1rem; */
+    text-align: center;
+    color: white;
+    border-top-right-radius: 1rem;
+    border-top-left-radius: 1rem;
+    bottom: 0;
+}
+
+footer .link {
+    color: white;
+}
+
+footer ul {
+    padding-inline-start: 0px;
+
+}
+
+footer .link:hover {
+    text-decoration: underline;
+}
+
+.link {
+    max-width: min-content;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--primary-color);
+
+}
+
+.list-non-bullet {
+    list-style: none;
+}
+
+.list-item-inline {
+    display: inline;
 }

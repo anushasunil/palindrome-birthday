@@ -166,10 +166,8 @@ function clickHandler() {
         count = 0;
         pcount = 0;
         console.log(date)
-    }
-    else
-    {
-        outputMessage.innerText = "Please enter a valid date 🤨" 
+    } else {
+        outputMessage.innerText = "Please enter a valid date 🤨"
     }
 }
 
