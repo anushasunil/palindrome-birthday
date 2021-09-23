@@ -61,11 +61,10 @@ footer {
     left: 0;
     right: 0;
     font-size: 1.5rem;
-    background-color: var(--primary-color);
+    background-color: rgb(31, 41, 55,0.5);
     text-align: center;
     color: white;
-    border-top-right-radius: 1rem;
-    border-top-left-radius: 1rem;
+   
    
 }
 
